@@ -1,0 +1,287 @@
+/** - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*
+2 * SENAC - TADS - Programacao Web *
+3 * ADO #02 Trabalhando As Rotas e LINKS *
+4 * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*
+5 * Nome : << flavia sarahim sabath ruiz> > *
+6 * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+
+
+------------------------home-------------------------------
+
+import './Home.css';
+import home from './Imagens/home.png'
+
+function Home(){
+
+    return(
+        <div className='homeDiv'>
+
+            <h1 className='homeH1'>Bem Vindo(a)</h1>
+
+            <h2 className='homeH2'>Está é a home da nossa empresa</h2>
+
+            <p className='homeP'>Você poderá acessar as categorias do site clicando nos itens acima</p>
+            
+            <img className='fotoHome' src={home}/>
+        </div>
+    )
+}
+
+export default Home;
+--------------------------login--------------------------
+import { useState } from "react";
+import './cadastro.css'
+
+
+function Cadastro () {
+
+    const [nome, setNome] = useState('');
+    const [cpf, setcpf] = useState('');
+    const [endereco, setendereco] = useState('');
+    
+    const [dadosCliente, setDadosCliente] = useState({
+        nomeCliente:" ____________________",
+        cpfCliente:import './Home.css';
+import Punpun from './Imagens/home.png'
+
+function Home(){
+
+    return(
+        <div className='homeDiv'>
+
+            <h1 className='homeH1'>Bem Vindo(a)</h1>
+
+            <h2 className='homeH2'>Está é a home da nossa empresa</h2>
+
+            <p className='homeP'>Você poderá acessar as categorias do site clicando nos itens acima</p>
+            
+            <img className='fotoHome' src={home}/>
+        </div>
+    )
+}
+
+export default Home; " ______________________",
+        enderecoCliente: "____________________"
+    })
+
+    function cadastrarCliente(evento) {
+
+        evento.preventDefault()
+        alert("Usuario cadastrado com Sucesso")
+
+        setDadosCliente ({
+            nomeCliente:" " + nome,
+            cpfCliente:" " + cpf,
+            enderecoCliente:" "+ endereco
+        })
+    }
+
+    return(
+        <div className="divCadastro">
+        <h1 className="tituloCadastro">Cadastro</h1>
+        <img className="fotoCadastro" src={PunpunGuardachuva}/>
+        <form onSubmit={cadastrarCliente}>
+        
+            <label className="labelNome">Nome do Cliente:</label>
+            <input className="inputNome" placeholder="Informe o nome do cliente" value = {nome}
+            onChange= {(evento ) => setNome(evento.target.value)}>
+
+            </input>
+            <br></br>
+
+            <label className="labelCpf">Número do CPF:</label>
+            <input className="inputCpf" placeholder="Informe o número do CPF do cliente" value = {cpf}
+            onChange= {(evento ) => setcpf(evento.target.value)}>
+
+            </input>
+            <br></br>
+
+            <label className="labelEndereco">Endereço do Cliente:</label>
+            <input className="inputEndereco" placeholder="Informe o endereço do cliente" value = {endereco}
+            onChange= {(evento ) => setendereco(evento.target.value)}>
+
+            </input>
+            <br></br>
+
+
+            <button className="botaoCadastro" type="submit"><div className="cadastrarCadastro">Cadastrar</div></button>
+
+        </form>
+        <div className="informacoesCadastro">
+            <span>Nome do Cliente:  {dadosCliente.nomeCliente}</span>
+            <br></br>
+            <span>CPF do Cliente:  {dadosCliente.cpfCliente}</span>
+            <br></br>
+            <span>Endereço do Cliente:  {dadosCliente.enderecoCliente}</span>
+        </div>
+        </div>
+    )
+
+
+}
+
+export default Cadastro;
+------------------------------------------------conta corrente-------------------------------------------------------
+import './ContaCorrente.css'
+import { useState } from 'react';
+
+function ContaCorrente () {
+    const [deposito, setDeposito] = useState (0);
+    const [saque, setSaque] = useState(0);
+    const [saldo, setSaldo] = useState(102456);
+
+    const [movimentacao, setMovimentacao] = useState ({
+        depositoConta: 0,
+        saqueConta: 0,
+    })
+
+    function EventoConta(evento) {
+
+        evento.preventDefault()
+        alert("Transação Concluida!")
+        
+        setSaldo(parseInt(saldo) + parseInt(deposito) - parseInt(saque))
+
+        setMovimentacao ({
+            depositoConta: deposito,
+            saqueConta: saque,
+            saldototal: saldo
+        })
+    }
+
+    return (
+        <div className='divCc'>
+            <h1 className='tituloContaCorrente'>Conta Corrente</h1>
+            <p className='nomeCliente'>Nome do Cliente: Leonardo Ravanelli Coelho</p>
+            <form onSubmit={EventoConta}>
+
+                <label className='labelDeposito'>Depósito:</label>
+                <input className='inputDeposito' placeholder='Insira um valor a ser depósitado' value={deposito}
+                onChange= {(evento) => setDeposito(evento.target.value)}></input>
+
+                <br></br>
+
+                <label className='labelSaque'>Saque:</label>
+                <input className='inputSaque' placeholder='Insira um valor a ser sacado' value={saque}
+                onChange= {(evento) => setSaque(evento.target.value)}></input>
+
+                <br></br>
+
+                <button className="botaoMovimentacao" type="submit"><div className="confirmarMovimentacao">Confirmar</div></button>
+
+        </form>
+
+        <div className='divSaldo'>
+            <span>Saldo Atual = {saldo}</span>
+        </div>
+        </div>
+    )
+    
+}
+
+
+export default ContaCorrente;
+
+-------------------------------------------------- calculo financeiro-----------------------------------------
+import { useState } from 'react';
+import './CalcFinanciamento.css';
+import home from './Imagens/home.png';
+
+function CalculoFinanciamento() {
+
+    const [parcela2, setParcela2] = useState();
+    const [parcela3, setParcela3] = useState();
+    const [parcela4, setParcela4] = useState();
+    const [total, setTotal] = useState();
+    const [valorSolicitado, setValorSolicitado] = useState(0);
+
+    const [financiamento, setFinanciamento] = useState ({
+        Parcela2:0,
+        Parcela3:0,
+        Parcela4 :0,
+        ValorSolicitado: 0
+    })
+
+    function EventoFinanciamento (evento) {
+        evento.preventDefault();
+        alert("Calculo do Fianaciamento Completo!");
+
+        setParcela2(parseInt(Math.round(total)/2))
+        setParcela3(parseInt(Math.round(total)/3))
+        setParcela4(parseInt(Math.round(total)/4))
+        setTotal(parseInt(Math.round(valorSolicitado) * 1.37))
+
+        setFinanciamento ({
+            Parcela2: parcela2,
+            Parcela3: parcela3,
+            Parcela4 : parcela4,
+            ValorSolicitado: valorSolicitado
+        })
+
+    }
+
+    return (
+    <div className='divInterface'>
+        <h1 className='h1Cf'>Simulação de Financiamento</h1>
+        <img className='img1Cf' src={PunpunCasa} />
+        <p className='nomeCliente'>Nome do Cliente: Leonardo Ravanelli Coelho</p>
+        <form onSubmit={EventoFinanciamento}>
+
+            <label className='labelValorSolicitadoInput'>Valor Solicitado:</label>
+            <input className='inputValorSolicitado' placeholder='Insira algum Valor' value={valorSolicitado}
+            onChange= {(evento) => setValorSolicitado(evento.target.value)}></input>
+
+            <br></br>
+
+            <button className='botaoFinanciamento' type='submit'><div className='botaoCalcular'>Calcular</div></button>
+
+        </form>
+
+        <div className='divInformacoesFinanciamento'>
+            <span>Valor Solicitado: R$ {valorSolicitado}</span>
+                                <br></br>
+            Taxa de Juros: 37%
+                                <br></br>
+            <div className='parcelas'>
+            <span>2x Parcelas de: R$ {parcela2}</span>
+            ⠀⠀⠀⠀⠀Total a ser pago: R$ {total}     
+                                <br></br>
+            <span>3x Parcelas de: R$ {parcela3}</span>
+            ⠀⠀⠀⠀⠀Total a ser pago: R$ {total}
+                                <br></br>
+            <span>4x Parcelas de: R$ {parcela4}</span>
+            ⠀⠀⠀⠀⠀Total a ser pago: R$ {total}
+                                <br></br>
+        </div>
+        </div>
+
+    </div>
+    )
+}
+
+export default CalculoFinanciamento;
+
+--------------------------------sobre nos----------------------------------------------------------
+import "./SobreNos.css";
+import sobrenos from './Imagens/sobrenos.png'
+
+function Sobrenos (){
+
+    return (
+        <div className="sobreDiv">
+            
+            <h1 className="sobreH1">Sobre Nós</h1>
+
+            <p className="sobreP">Jake Peralta é um detetive brilhante e ao mesmo tempo imaturo,
+            que nunca precisou se preocupar em respeitar as regras.
+            Tudo muda quando um capitão exigente assume o comando de seu esquadrão e Jake deve aprender a trabalhar em equipe.</p>
+
+            <img className="fotoSobre" src={sobrenos}/>
+            
+            <img className="fotoSobre2" src={sobrenos}/>
+        </div>
+    )
+}
+
+export default Sobrenos;
